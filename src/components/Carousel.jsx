@@ -10,25 +10,25 @@ const TestimonialCarousel = () => {
       text: "Investing through this platform has transformed my approach to entrepreneurship. I found unique ideas that resonate with my passion, and the returns have been rewarding beyond expectations.",
       author: "Emily Johnson",
       role: "Startup Enthusiast & Investor",
-      img: "/images/Article_Publisher.png"
+      img: "images/Article_Publisher.png"
     },
     {
       text: "Pitching my startup here was an incredible experience! I connected with investors who truly believed in my vision, leading to a successful funding round that exceeded all goals.",
       author: "Michael Chen",
       role: "Tech Entrepreneur",
-      img: "/images/Article_Publisher.png"
+      img: "images/Article_Publisher.png"
     },
     {
       text: "The platform's innovative approach to connecting startups with investors has revolutionized how we think about early-stage investments.",
       author: "Sarah Williams",
       role: "Angel Investor",
-      img: "/images/Article_Publisher.png"
+      img: "images/Article_Publisher.png"
     },
     {
       text: "As a first-time founder, the guidance and support I received through this platform was invaluable. It helped turn my idea into a funded reality.",
       author: "David Martinez",
       role: "Startup Founder",
-      img: "/images/Article_Publisher.png"
+      img: "images/Article_Publisher.png"
     },
   ];
 

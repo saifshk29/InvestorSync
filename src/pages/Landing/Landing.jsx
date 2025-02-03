@@ -120,7 +120,7 @@ export default function LandingPage() {
         {/* Navbar */}
         <div className="w-full text-white p-[24px] font-medium flex flex-row  top-0 left-0 bg-black z-100 h-[132px]">
           <div className="w-full flex flex-row gap-7 items-center">
-            <p>LOGO</p>
+            <img src="images\Footer_Logo.png" alt="" className="h-[32px] w-[32px] bg-white rounded-full"/>
             <p>INVESTOR SYNC</p>
             <div className="w-[1px] h-[66px] bg-[#A1C0FF]"></div>
             <ul className="flex flex-row gap-7  z-100">
@@ -157,14 +157,14 @@ export default function LandingPage() {
               </button>
             </div>
             <img
-              src="public\images\Gradient_left_top_heading_hero_section.png"
+              src="images\Gradient_left_top_heading_hero_section.png"
               alt=""
               width={"680.82px"}
               height={"680.82px"}
               className="absolute  left-0 z-0"
             />
             <img
-              src="public\images\Gradient2.png"
+              src="images\Gradient2.png"
               alt=""
               width={"680.33px"}
               height={"629.34px"}
@@ -202,7 +202,7 @@ export default function LandingPage() {
             {/*1*/}
             <motion.div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
               <img
-                src="public\images\AI.png"
+                src="images\AI.png"
                 alt=""
                 width="290"
                 height="173"
@@ -237,7 +237,7 @@ export default function LandingPage() {
           {/*3*/}
           <motion.div className="h-[622px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
             <img
-              src="public\images\ARVR.png"
+              src="images\ARVR.png"
               alt=""
               width="417"
               height="358"
@@ -255,7 +255,7 @@ export default function LandingPage() {
             {/*4*/}
             <motion.div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
               <img
-                src="public\images\Art.png"
+                src="images\Art.png"
                 alt=""
                 width="290"
                 height="173"
@@ -269,7 +269,7 @@ export default function LandingPage() {
             {/*5*/}
             <div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
               <img
-                src="public\images\Product.png"
+                src="images\Product.png"
                 alt=""
                 width="290"
                 height="173"
@@ -292,7 +292,7 @@ export default function LandingPage() {
       {/*Learn and Grow Section*/}
       <div className="flex flex-col min-h-screen z-10 w-full justify-center items-center gap-10 mt-18  realtive">
       <img
-            src="public\images\Gradient_left_top_heading_hero_section.png"
+            src="images\Gradient_left_top_heading_hero_section.png"
             alt=""
             width={"680.82px"}
             height={"680.82px"}
@@ -311,7 +311,7 @@ export default function LandingPage() {
           {/*FIRST ARTICLE*/}
           <div className="h-[590px] w-[382px] bg-[#010D50] rounded-[40px] flex flex-col ">
             <img
-              src="public\images\Article1_Landing_Page.png"
+              src="images\Article1_Landing_Page.png"
               alt=""
               className="rounded-t-[40px]"
               width={"382px"}
@@ -332,7 +332,7 @@ export default function LandingPage() {
               {/*Publisher Details*/}
               <div className="flex flex-row items-center gap-5">
                 <img
-                  src="public\images\Article_Publisher.png"
+                  src="images\Article_Publisher.png"
                   alt=""
                   width={"60px"}
                   height={"60px"}
@@ -352,7 +352,7 @@ export default function LandingPage() {
           {/*SECOND ARTICLE*/}
           <div className="h-[590px] w-[382px] bg-[#010D50] rounded-[40px] flex flex-col ">
             <img
-              src="public\images\Article2_Landing_Page.png"
+              src="images\Article2_Landing_Page.png"
               alt=""
               className="rounded-t-[40px]"
               width={"382px"}
@@ -373,7 +373,7 @@ export default function LandingPage() {
               {/*Publisher Details*/}
               <div className="flex flex-row items-center gap-5">
                 <img
-                  src="public\images\Article_Publisher.png"
+                  src="images\Article_Publisher.png"
                   alt=""
                   width={"60px"}
                   height={"60px"}
@@ -393,7 +393,7 @@ export default function LandingPage() {
           {/*THIRD ARTICLE*/}
           <div className="h-[590px] w-[382px] bg-[#010D50] rounded-[40px] flex flex-col ">
             <img
-              src="public\images\Article3_Landing_Page.png"
+              src="images\Article3_Landing_Page.png"
               alt=""
               className="rounded-t-[40px] h-[295px]"
               width={"382px"}
@@ -414,7 +414,7 @@ export default function LandingPage() {
               {/*Publisher Details*/}
               <div className="flex flex-row items-center gap-5">
                 <img
-                  src="public\images\Article_Publisher.png"
+                  src="images\Article_Publisher.png"
                   alt=""
                   width={"60px"}
                   height={"60px"}
@@ -441,8 +441,8 @@ export default function LandingPage() {
       {/*WHAT WE ARE ALL ABOUT SECTION*/}
       <div className="flex flex-col z-10 w-full h-screen mt-18 justify-evenly relative">
         {/*Heading and sub-heading*/}
-        <img src="public\images\Gradient4.png" alt="" className="absolute h-[955px] w-[688px] -right-52 bottom-42"/>
-        <img src="public\images\Gradient5.png" alt="" className="absolute h-[955px] w-[688px] -left-56 top-52"/>
+        <img src="images\Gradient4.png" alt="" className="absolute h-[955px] w-[688px] -right-52 bottom-42"/>
+        <img src="images\Gradient5.png" alt="" className="absolute h-[955px] w-[688px] -left-56 top-52"/>
         <div className="text-white w-full flex flex-col justify-center items-center gap-5">
           <p className="text-[50px] font-[700]">What We’re All About</p>
         </div>
@@ -466,12 +466,12 @@ export default function LandingPage() {
           </p>
         </div>
         <img
-          src="public/images/cube-helix 2.png"
+          src="images/cube-helix 2.png"
           alt=""
           className="absolute right-0 top-0 w-[150px] h-[250px]"
         />
         <img
-          src="public\images\pyramid 1.png"
+          src="images\pyramid 1.png"
           alt=""
           className="absolute left-0 bottom-0 w-[90px] h-[180px]"
         />
@@ -536,7 +536,7 @@ export default function LandingPage() {
             {/*LOWER PART*/}
             <div className="flex flex-col gap-2 ml-36">
             <div className="flex flex-row w-full items-center gap-2">
-                <img src="public\images\Footer_Logo.png" alt="" height={"32px"} width={"32px"}/>
+                <img src="images\Footer_Logo.png" alt="" height={"32px"} width={"32px"}/>
                 <p className="font-500 text-[14px] text-white">INVESTOR SYNC</p>
             </div>
             <div className="flex flex-row w-full items-center gap-2 text-white opacity-[36%]"> 
