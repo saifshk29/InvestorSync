@@ -1,0 +1,87 @@
+{/*The grid*/}
+        <div className="h-[630px] text-white grid grid-cols-[325px_477px_325px] gap-7">
+          {/* Left column */}
+          <div className="grid gap-7">
+            {/*1*/}
+            <motion.div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+              <img
+                src="public\images\AI.png"
+                alt=""
+                width="290"
+                height="173"
+                
+              />
+              <p className="font-[600] text-[20px] leading-[32px]">
+                Artificial Intelligence
+              </p>
+              <p className="font-[400] text-[15px] leading-[32px]">
+                Shaping the Future
+              </p>
+            </motion.div>
+            {/*2*/}
+            <div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+              <img
+                src="images\HealthandFitness.png"
+                alt=""
+                width="290"
+                height="173"
+                
+              />
+              <p className="font-[600] text-[20px] leading-[32px]">
+                Health & Fitness
+              </p>
+              <p className="font-[400] text-[15px] leading-[32px]">
+                Pitches to improve health and fitness
+              </p>
+            </div>
+          </div>
+
+          {/* Center column */}
+          {/*3*/}
+          <motion.div className="h-[622px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+            <img
+              src="public\images\ARVR.png"
+              alt=""
+              width="417"
+              height="358"
+              
+            />
+            <p className="font-[600] text-[20px] leading-[32px]">AR/VR</p>
+            <p className="font-[400] text-[15px] leading-[32px] w-[253px] text-center">
+              Dive into a world where augmented and virtual reality redefine the
+              way you explore, connect, and create.
+            </p>
+          </motion.div>
+
+          {/* Right column */}
+          <div className="grid gap-7">
+            {/*4*/}
+            <motion.div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+              <img
+                src="public\images\Art.png"
+                alt=""
+                width="290"
+                height="173"
+                className=" rounded-[24px]"
+              />
+              <p className="font-[600] text-[20px] leading-[32px]">Art</p>
+              <p className="font-[400] text-[15px] leading-[32px]">
+                Empowering Creativity
+              </p>
+            </motion.div>
+            {/*5*/}
+            <div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+              <img
+                src="public\images\Product.png"
+                alt=""
+                width="290"
+                height="173"
+                
+              />
+              <p className="font-[600] text-[20px] leading-[32px]">Product</p>
+              <p className="font-[400] text-[15px] leading-[32px]">
+                Redefining the boundaaries of reality
+              </p>
+            </div>
+          </div>
+        </div>
