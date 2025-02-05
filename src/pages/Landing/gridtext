@@ -1,11 +1,10 @@
-{/*The grid*/}
-        <div className="h-[630px] text-white grid grid-cols-[325px_477px_325px] gap-7">
+<div className="h-[630px] text-white flex flex-row gap-7">
           {/* Left column */}
-          <div className="grid gap-7">
+          <div className="flex flex-col items-center justify-center gap-7 ">
             {/*1*/}
-            <motion.div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+            <motion.div className="h-[295px] w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-5 py-3 px-3">
               <img
-                src="public\images\AI.png"
+                src="images\AI.png"
                 alt=""
                 width="290"
                 height="173"
@@ -19,7 +18,7 @@
               </p>
             </motion.div>
             {/*2*/}
-            <div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+            <div className="h-[295px] w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-5 py-3 px-3">
               <img
                 src="images\HealthandFitness.png"
                 alt=""
@@ -38,27 +37,43 @@
 
           {/* Center column */}
           {/*3*/}
-          <motion.div className="h-[622px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
-            <img
-              src="public\images\ARVR.png"
+          <motion.div className="h-[622px] w-[477px] bg-[#1E1E1E] rounded-[40px] flex items-center flex-col gap-7 py-5"
+          animate={{height:isHovered?"295px":"625px",
+            width:isHovered?"325px":"477px",
+            gap:isHovered?"7":"3",
+          }}>
+            <motion.img
+              src="images\ARVR.png"
               alt=""
               width="417"
               height="358"
+              animate={{height:isHovered?"173px":"358px",
+                width:isHovered?"290px":"417px"
+              }}
               
             />
-            <p className="font-[600] text-[20px] leading-[32px]">AR/VR</p>
-            <p className="font-[400] text-[15px] leading-[32px] w-[253px] text-center">
+            <p className="font-[600] text-[20px] leading-[32px]"
+            animate={{height:isHovered?"295px":"625px"}}>AR/VR</p>
+            <p className="font-[400] text-[15px] leading-[32px] w-[253px] text-center"
+            animate={{height:isHovered?"295px":"625px"}}>
               Dive into a world where augmented and virtual reality redefine the
               way you explore, connect, and create.
             </p>
           </motion.div>
 
           {/* Right column */}
-          <div className="grid gap-7">
+          <motion.div className="flex flex-col items-center justify-center gap-7 h-[622px]">
             {/*4*/}
-            <motion.div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+            <motion.div className=" w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-3 py-3 px-3 "
+            onMouseEnter={()=> setIsHovered(true)}
+            onMouseLeave={()=> setIsHovered(false)}
+            initial={{ height: '295px', width: '325px' }}
+            animate={{height:isHovered?"622px":"295px",
+              width:isHovered?"477px":"325px"
+            }}
+            >
               <img
-                src="public\images\Art.png"
+                src="images\Art.png"
                 alt=""
                 width="290"
                 height="173"
@@ -70,9 +85,12 @@
               </p>
             </motion.div>
             {/*5*/}
-            <div className="h-[295px] bg-[#1E1E1E] rounded-[40px] grid place-items-center py-3">
+            <motion.div className="h-[295px] w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-3 py-3 px-3 transition-all duration-50"
+            animate={{ x: isHovered ? "-132%" : "0%" }}
+            
+            >
               <img
-                src="public\images\Product.png"
+                src="images\Product.png"
                 alt=""
                 width="290"
                 height="173"
@@ -82,6 +100,6 @@
               <p className="font-[400] text-[15px] leading-[32px]">
                 Redefining the boundaaries of reality
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
