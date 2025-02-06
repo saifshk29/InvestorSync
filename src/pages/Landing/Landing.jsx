@@ -1,13 +1,13 @@
 import React, { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, useGLTF, Text3D } from "@react-three/drei";
+import { OrbitControls, useGLTF, Text3D, Center } from "@react-three/drei";
 import * as THREE from "three";
 import { Environment } from "@react-three/drei";
 import Carousel from "../../components/Carousel";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import TestimonialCarousel from "../../components/Carousel";
-import { motion } from "framer-motion";
+import { hover, motion } from "framer-motion";
 import CardGrid from "../../components/CardGrid";
 import FadeIn from "../../Effects/FadeIn";
 <Environment files="/hdri/studio.hdr" background={false} />;
@@ -113,8 +113,8 @@ const ThreeScene = () => {
 };
 
 export default function LandingPage() {
-  
-
+  const [isHovered, setisHovered] = useState(false);
+  const [hoveredId, sethoveredId] = useState(null);
   return (
     <div className="w-full bg-black  flex flex-col overflow-x-hidden ">
       {/*NAVBAR AND HERO SECTION*/}
@@ -123,9 +123,9 @@ export default function LandingPage() {
         <div className="w-full text-white p-[24px] font-medium flex flex-row  top-0 left-0 bg-black z-100 h-[132px]">
           <div className="w-full flex flex-row gap-7 items-center">
             <img
-              src="images\Footer_Logo.png"
+              src="images\Logo.png"
               alt=""
-              className="h-[32px] w-[32px] bg-white rounded-full"
+              className="h-[67px] w-72px]  rounded-full"
             />
             <p>INVESTOR SYNC</p>
             <div className="w-[1px] h-[66px] bg-[#A1C0FF]"></div>
@@ -200,146 +200,194 @@ export default function LandingPage() {
         </FadeIn>
       </div>
       {/*DISCOVER CREATIVE IDEAS*/}
-      
-        <div className="flex flex-col z-10 w-full justify-center items-center gap-18">
-          {/*Heading and sub-heading*/}
-          <FadeIn><div className="text-white w-full flex flex-col justify-center items-center gap-5">
+
+      <div className="flex flex-col z-10 w-full justify-center items-center gap-18">
+        {/*Heading and sub-heading*/}
+        <FadeIn>
+          <div className="text-white w-full flex flex-col justify-center items-center gap-5">
             <p className="text-[50px] font-[700]">Discover Creative Ideas</p>
             <p className="text-[18px] opacity-[90%]">
               Explore innovatice domains shaping the future
             </p>
-          </div></FadeIn>
-          
-          {/*The grid*/}
-          {/*The grid*/}
-          <FadeIn>
-          <div className="min-h-[622px] text-white flex flex-row gap-7 z-0 ">
-            {/* Left column */}
-            <div className="flex flex-col items-center justify-center gap-7 ">
-              {/*1*/}
-              <div className="h-[295px] w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-5 py-3 px-3">
-                <img src="images\AI.png" alt="" width="290" height="173" />
-                <p className="font-[600] text-[20px] leading-[32px]">
-                  Artificial Intelligence
-                </p>
-                <p className="font-[400] text-[15px] leading-[32px]">
-                  Shaping the Future
-                </p>
-              </div>
-              {/*2*/}
-              <div className="h-[295px] w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-5 py-3 px-3">
-                <img
-                  src="images\HealthandFitness.png"
-                  alt=""
-                  width="290"
-                  height="173"
-                />
-                <p className="font-[600] text-[20px] leading-[32px]">
-                  Health & Fitness
-                </p>
-                <p className="font-[400] text-[15px] leading-[32px]">
-                  Pitches to improve health and fitness
-                </p>
-              </div>
-            </div>
+          </div>
+        </FadeIn>
 
-            {/* Center column */}
+        {/*The grid*/}
+        <FadeIn>
+          <div className="h-[650px] w-[1200px] text-white flex flex-row justify-center items-center relative py-5 ">
+            {/*1*/}
+            <motion.div className="h-[295px] w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center  py-3 px-3 absolute left-0 top-0 mt-5 ml-5 group"
+            id="AI"
+            onMouseEnter={()=>sethoveredId("AI")}
+            onMouseLeave={()=>sethoveredId(null)}
+            animate={{
+              height:hoveredId==="AI"?622:295,
+              width:hoveredId==="AI"?477:325,
+              x:hoveredId==="Health"?"153.4%":"0%"
+            }}>
+              <img src="images\AI.png" alt="" width="290" height="173" className="rounded-[24px] w-[290px] h-[173px] group-hover:h-[358px] group-hover:w-[417px]"/>
+              <p className="font-[600] text-[20px] leading-[32px] mt-5">
+                Artificial Intelligence
+              </p>
+              <p className="font-[400] text-[15px] leading-[32px] group-hover:hidden">
+                Shaping the Future
+              </p>
+              <p className="font-[400] text-white invisible text-[15px] leading-[32px] group-hover:visible text-center mt-5">
+              Innovating with intelligent solutions that learn, adapt, and evolve. Explore AI-driven breakthroughs shaping tomorrow.
+              </p>
+            </motion.div>
+            {/*2*/}
+            <motion.div className="h-[295px] w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center  py-3 px-3 absolute bottom-0 left-0 mb-5 ml-5 group"
+             id="Health"
+             onMouseEnter={()=>sethoveredId("Health")}
+             onMouseLeave={()=>sethoveredId(null)}
+            animate={{
+              height:hoveredId==="Health"?622:295,
+              width:hoveredId==="Health"?477:325,
+              x:hoveredId==="AI"?"153.4%":"0%"
+            }}>
+              <img
+                src="images\HealthandFitness.png"
+                alt=""
+                width="290"
+                height="173"
+                className="rounded-[24px] w-[290px] h-[173px] group-hover:h-[358px] group-hover:w-[417px]"
+              />
+              <p className="font-[600] text-[20px] leading-[32px] mt-5">
+                Health & Fitness
+              </p>
+              <p className="font-[400] text-[15px] leading-[32px] group-hover:hidden">
+                Pitches to improve health and fitness
+              </p>
+              <p className="font-[400] w-[267px] text-white invisible text-[15px] leading-[32px] group-hover:visible text-center mt-5">
+              Prioritize wellness with smarter choices. Explore innovations that fuel a healthier, stronger you.
+              </p>
+            </motion.div>
             {/*3*/}
-            <motion.div
-              className="h-[622px] w-[477px] bg-[#1E1E1E] rounded-[40px] flex items-center flex-col gap-7 py-5"
-              
+            <motion.div className="h-[622px] w-[477px] bg-[#1E1E1E] rounded-[40px] flex items-center flex-col  py-5 absolute self-center place-self-center top-0 mt-5 duration-100"
+              animate={{
+                        height: hoveredId === "Art" || hoveredId === "Product" || hoveredId === "AI" || hoveredId === "Health" ? 295 : 622,
+                        width: hoveredId === "Art" || hoveredId === "Product" || hoveredId === "AI" || hoveredId === "Health"? 325 : 477,
+                        x: hoveredId === "Art" || hoveredId === "Product" ? "-22%" : hoveredId === "AI" || hoveredId === "Health"? "25%" : "0%",
+                        y: hoveredId === "Product" ? "110%" : hoveredId === "Health"?"105%":"0%"
+                      }}
+
+            
             >
               <motion.img
-                
-                     
-             src="images\ARVR.png"
+                src="images\ARVR.png"
                 alt=""
-                
-               className="h-[358px] w-[417px]"
-              />
+                className="h-[358px] w-[417px]" 
+                animate={{
+                  height:hoveredId==="Art" ||  hoveredId === "Product" || hoveredId === "AI"|| hoveredId === "Health"?173:358,
+                  width:hoveredId==="Art"||hoveredId === "Product"|| hoveredId === "AI"|| hoveredId === "Health"?290:417,
+                  
+                  
+                }}/>
               <motion.p
-                className="font-[600] text-[20px] leading-[32px]"
-                
-              >
+                className="font-[600] text-[20px] leading-[32px] mt-5"
+                >
                 AR/VR
               </motion.p>
               <motion.p
-                className="font-[400] text-[15px] leading-[32px] w-[253px] text-center"
-               
-              >
+                className="font-[400] text-[15px] leading-[32px] w-[253px] text-center "
+                animate={{
+                  visibility:hoveredId==="Art"||hoveredId === "Product"|| hoveredId === "AI"|| hoveredId === "Health"?"visible":"hidden"
+                }}
+                >
+                Augmented Reality
+              </motion.p>
+              <motion.p
+                className="font-[400] text-[15px] leading-[32px] w-[253px] text-center transfrom-all "
+                animate={{
+                  visibility:hoveredId==="Art"||hoveredId === "Product"|| hoveredId === "AI"|| hoveredId === "Health"?"hidden":"visible"
+                }}
+                >
                 Dive into a world where augmented and virtual reality redefine
                 the way you explore, connect, and create.
               </motion.p>
             </motion.div>
+            {/*4*/}
+            <motion.div className="w-[325px] min-h-[295px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center py-3 px-3 z-50 absolute right-0 top-0 mt-5 mr-5 group"
+            id="Art"
+            onMouseEnter={()=>sethoveredId("Art")}
+            onMouseLeave={()=>sethoveredId(null)}
+            animate={{
+              height:hoveredId==="Art"?622:295,
+              width:hoveredId==="Art"?477:325,
+              x:hoveredId==="Product"?"-150%":"0%"
+            }}
+            >
+              <motion.img
+                src="images\Art.png"
+                alt=""
+                width="290"
+                height="173"
+                className="rounded-[24px] w-[290px] h-[173px] group-hover:h-[358px] group-hover:w-[417px]"
+              />
+              <p className="font-[600] text-[20px] leading-[32px] mt-5">Art</p>
+              <p className="font-[400] text-[15px] leading-[32px] group-hover:hidden">
+                Empowering Creativity
+              </p>
+              <p className="font-[400] text-white invisible text-[15px] leading-[32px] group-hover:visible text-center mt-5">
+                  A limitless canvas for expression,storytelling and innovation, evolving through tradition and technology
+              </p>
+            </motion.div>
+            {/*5*/}
+            <motion.div className="w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center  py-3 px-3 absolute right-0 bottom-0 mb-5 mr-5 group"
+            onMouseEnter={()=>sethoveredId("Product")}
+            onMouseLeave={()=>sethoveredId(null)}
+            animate={{
+              height:hoveredId === "Product"?622:295,
+              width:hoveredId === "Product"?477:325,
+              x:hoveredId==="Art"?"-150%":"0%"
+            }}
+            >
+              <img src="images\Product.png" alt="" width="290" height="173" className="rounded-[24px] w-[290px] h-[173px] group-hover:h-[358px] group-hover:w-[417px]" />
+              <p className="font-[600] text-[20px] leading-[32px] mt-5">Product</p>
+              <p className="font-[400] text-[15px] leading-[32px] group-hover:hidden">
+                Redefining the boundaries of reality
+              </p>
+              <p className="font-[400] text-white invisible text-[15px] leading-[32px] group-hover:visible text-center mt-5">
+              Showcasing innovative solutions, prototypes, and game-changing products. Explore, collaborate, and turn bold ideas into reality
+              </p>
+            </motion.div>
 
-            {/* Right column */}
-            <div className="flex flex-col items-center justify-center gap-7 z-50 relative">
-              {/*4*/}
-              <motion.div
-                className="w-[325px]  bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-3 py-3 px-3 z-50"
-                
-              >
-                <motion.img
-                  src="images\Art.png"
-                  alt=""
-                  width="290"
-                  height="173"
-                  className="rounded-[24px]"
-                />
-                <p className="font-[600] text-[20px] leading-[32px]">Art</p>
-                <p className="font-[400] text-[15px] leading-[32px]">
-                  Empowering Creativity
-                </p>
-              </motion.div>
-              {/*5*/}
-              <motion.div
-                className="w-[325px] bg-[#1E1E1E] rounded-[40px] flex flex-col items-center gap-3 py-3 px-3 "
-                
-              >
-                <img src="images\Product.png" alt="" width="290" height="173" />
-                <p className="font-[600] text-[20px] leading-[32px]">Product</p>
-                <p className="font-[400] text-[15px] leading-[32px]">
-                  Redefining the boundaries of reality
-                </p>
-              </motion.div>
-            </div>
           </div>
-          </FadeIn>
-          
-          {/*CTA button*/}
-          <FadeIn>
+        </FadeIn>
+
+        {/*CTA button*/}
+        <FadeIn>
           <button className="w-[168px] text-white h-[70px] rounded-[80px] py-[27px] px-[32px] bg-[#1D33D0] flex items-center justify-center  hover:bg-[#5E6DDB] translation-transform duration-400">
             <p className=" font-[700] leading-[16px] text-[16px] tracking-[1hpx]">
               VIEW MORE
             </p>
           </button>
-          </FadeIn>
-          
-        </div>
-     
+        </FadeIn>
+      </div>
 
       {/*Learn and Grow Section*/}
-      
-        <div className="flex flex-col min-h-screen z-10 w-full justify-center items-center gap-10 mt-18  realtive">
-          <img
-            src="images\Gradient_left_top_heading_hero_section.png"
-            alt=""
-            width={"680.82px"}
-            height={"680.82px"}
-            className="absolute  left-0 -z-10"
-          />
-          {/*Heading and sub-heading*/}
-          <FadeIn>
+
+      <div className="flex flex-col min-h-screen z-10 w-full justify-center items-center gap-10 mt-18  realtive">
+        <img
+          src="images\Gradient_left_top_heading_hero_section.png"
+          alt=""
+          width={"680.82px"}
+          height={"680.82px"}
+          className="absolute  left-0 -z-10"
+        />
+        {/*Heading and sub-heading*/}
+        <FadeIn>
           <div className="text-white w-full flex flex-col justify-center items-center gap-5">
             <p className="text-[50px] font-[700]">Learn & Grow</p>
             <p className="text-[18px opacity-[90%]">
               Learn from successful creators, investors, and industry experts
             </p>
           </div>
-          </FadeIn>
-          
-          {/*Articles Section*/}
-          <FadeIn>
+        </FadeIn>
+
+        {/*Articles Section*/}
+        <FadeIn>
           <div className="flex flex-row justify-center gap-7 z-10">
             {/*FIRST ARTICLE*/}
             <div className="h-[590px] w-[382px] bg-[#010D50] rounded-[40px] flex flex-col ">
@@ -465,39 +513,37 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          </FadeIn>
-          <FadeIn>
+        </FadeIn>
+        <FadeIn>
           <button className="w-[243px] h-[70px] rounded-[80px] py-[27px] px-[32px] bg-[#1D33D0] flex items-center justify-center hover:bg-[#5E6DDB] translation-transform duration-400">
             <p className="text-white font-[700] leading-[16px] text-[16px] tracking-[1px] ">
               VIEW ALL ARTICLES
             </p>
           </button>
-          </FadeIn>
-          
-        </div>
-      
+        </FadeIn>
+      </div>
 
       {/*WHAT WE ARE ALL ABOUT SECTION*/}
-     
-        <div className="flex flex-col z-10 w-full h-screen mt-18 justify-evenly relative">
-          {/*Heading and sub-heading*/}
-          <img
-            src="images\Gradient4.png"
-            alt=""
-            className="absolute h-[955px] w-[688px] -right-52 bottom-42"
-          />
-          <img
-            src="images\Gradient5.png"
-            alt=""
-            className="absolute h-[955px] w-[688px] -left-56 top-52"
-          />
-          <FadeIn>
+
+      <div className="flex flex-col z-10 w-full h-screen mt-18 justify-evenly relative">
+        {/*Heading and sub-heading*/}
+        <img
+          src="images\Gradient4.png"
+          alt=""
+          className="absolute h-[955px] w-[688px] -right-52 bottom-42"
+        />
+        <img
+          src="images\Gradient5.png"
+          alt=""
+          className="absolute h-[955px] w-[688px] -left-56 top-52"
+        />
+        <FadeIn>
           <div className="text-white w-full flex flex-col justify-center items-center gap-5">
             <p className="text-[50px] font-[700]">What We’re All About</p>
           </div>
-          </FadeIn>
-          
-          <FadeIn>
+        </FadeIn>
+
+        <FadeIn>
           <div className="text-white w-full flex flex-col justify-center items-center gap-5">
             <p className="text-[50px] leading-[56px] font-[600] w">
               For Creators
@@ -507,8 +553,8 @@ export default function LandingPage() {
               can help bring your vision to life.
             </p>
           </div>
-          </FadeIn>
-          <FadeIn>
+        </FadeIn>
+        <FadeIn>
           <div className="text-white w-full flex flex-col justify-center items-center gap-5">
             <p className="text-[50px] leading-[56px] font-[600] w">
               For Investors
@@ -518,26 +564,25 @@ export default function LandingPage() {
               with creators to make a meaningful impact.
             </p>
           </div>
-          </FadeIn>
-          
-          <img
-            src="images/cube-helix 2.png"
-            alt=""
-            className="absolute right-0 top-0 w-[150px] h-[250px]"
-          />
-          <img
-            src="images\pyramid 1.png"
-            alt=""
-            className="absolute left-0 bottom-0 w-[90px] h-[180px]"
-          />
-        </div>
-      
+        </FadeIn>
+
+        <img
+          src="images/cube-helix 2.png"
+          alt=""
+          className="absolute right-0 top-0 w-[150px] h-[250px]"
+        />
+        <img
+          src="images\pyramid 1.png"
+          alt=""
+          className="absolute left-0 bottom-0 w-[90px] h-[180px]"
+        />
+      </div>
 
       {/*Invest in tomorrows innovations*/}
-      
-        <div className="flex flex-col z-10 w-full h-screen  justify-center items-center gap-8">
-          {/*Heading and sub-heading*/}
-          <FadeIn>
+
+      <div className="flex flex-col z-10 w-full h-screen  justify-center items-center gap-8">
+        {/*Heading and sub-heading*/}
+        <FadeIn>
           <div className="text-white w-full  flex flex-col justify-start items-center gap-5">
             <p className="text-[50px] font-[700]">
               Invest in Tomorrow’s Innovations!
@@ -546,13 +591,12 @@ export default function LandingPage() {
               Join a community where ideas meet funding
             </p>
           </div>
-          </FadeIn>
-          
-          {/*Carousel*/}
-                  
-          <TestimonialCarousel />
-        </div>
-      
+        </FadeIn>
+
+        {/*Carousel*/}
+
+        <TestimonialCarousel />
+      </div>
 
       {/*Footer*/}
       <div className="w-full min-h-[75vh] bg-[#010D50]">
@@ -635,7 +679,7 @@ export default function LandingPage() {
         <div className="flex flex-col gap-2 ml-36">
           <div className="flex flex-row w-full items-center gap-2">
             <img
-              src="images\Footer_Logo.png"
+              src="images\Logo.png"
               alt=""
               height={"32px"}
               width={"32px"}
